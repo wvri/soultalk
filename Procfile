@@ -1,1 +1,2 @@
-web: gunicorn soultalk.wsgi
+web: gunicorn config.wsgi
+
