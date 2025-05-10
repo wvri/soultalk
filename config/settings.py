@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-g%rmm*kj@v^#_6fz6^x_vsoof5sgj*^m9mp02o$wvv^vnse52p'
@@ -143,4 +142,11 @@ DEFAULT_FROM_EMAIL = 'noreply@soultalk.com'
 # Crispy
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'sendgrid_backend.SendgridBackend')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@soultalk.com')
 
+# отключим отслеживание открытий и кликов, чтобы не ругались на GDPR
+SENDGRID_TRACK_EMAIL_OPENS = False
+SENDGRID_TRACK_CLICKS = False
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
