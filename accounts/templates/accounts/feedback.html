@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Отзывы — SoulTalk{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-2xl shadow-md">
+  <h1 class="text-2xl font-bold mb-4 text-center text-gray-800">Оставьте отзыв</h1>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div>
+      {{ form.name.label_tag }}
+      {{ form.name }}
+      {% if form.name.errors %}
+        <p class="text-red-500 text-sm">{{ form.name.errors.0 }}</p>
+      {% endif %}
+    </div>
+    <div>
+      {{ form.comment.label_tag }}
+      {{ form.comment }}
+      {% if form.comment.errors %}
+        <p class="text-red-500 text-sm">{{ form.comment.errors.0 }}</p>
+      {% endif %}
+    </div>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">
+      Отправить
+    </button>
+  </form>
+</div>
+
+<div class="max-w-2xl mx-auto mt-10">
+  <h2 class="text-xl font-semibold mb-4 text-gray-700">Отзывы пользователей</h2>
+  {% for fb in feedbacks %}
+    <div class="bg-gray-100 p-4 mb-4 rounded-lg shadow-sm">
+      <p class="font-semibold">{{ fb.name }}</p>
+      <p class="text-gray-600 text-sm">{{ fb.created_at|date:"d.m.Y H:i" }}</p>
+      <p class="mt-2 text-gray-800">{{ fb.comment }}</p>
+    </div>
+  {% empty %}
+    <p class="text-gray-500">Отзывов пока нет. Будьте первым!</p>
+  {% endfor %}
+</div>
+{% endblock %}

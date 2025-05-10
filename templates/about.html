@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+  <div class="bg-white p-8 rounded-2xl shadow-xl border border-purple-200">
+    <h1 class="text-4xl font-extrabold text-center text-purple-700 mb-6">О SoulTalk</h1>
+    
+    <h2 class="text-2xl font-semibold text-purple-600 mb-2">Зачем мы это делаем</h2>
+    <p class="text-gray-700 text-lg mb-4">
+      💡 <span class="font-semibold">Идея SoulTalk</span> пришла из желания создать пространство, где каждый может найти понимание, поддержку и душевное равновесие. 
+      В мире технологий и социальных сетей мы всё чаще чувствуем себя одинокими. Мы хотим это изменить.
+    </p>
+
+    <h2 class="text-2xl font-semibold text-purple-600 mb-2">Что такое SoulTalk?</h2>
+    <p class="text-gray-700 text-lg mb-4">
+      🌱 <span class="font-semibold">SoulTalk — это не просто сайт,</span> это сообщество. Здесь можно делиться чувствами, говорить честно и открыто — 
+      в группах или один на один. Ты не один. Здесь тебя поймут.
+    </p>
+
+    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 text-purple-900 italic rounded mb-6">
+      “Иногда достаточно одного честного разговора, чтобы стало легче.”
+    </div>
+
+    <!-- Контакты -->
+    <div class="mt-10 p-6 rounded-2xl bg-gray-50 shadow-md text-left space-y-4 border border-gray-200">
+      <h2 class="text-2xl font-semibold text-purple-600">Свяжитесь с нами</h2>
+      <p class="flex items-center space-x-2">
+        📧 <strong>Email:</strong> <a href="mailto:mimirolloor@gmail.com" class="text-blue-600 hover:underline">mimirolloor@gmail.com</a>
+      </p>
+      <p class="flex items-center space-x-2">
+        📞 <strong>Телефон:</strong> <a href="tel:+77761799721" class="text-blue-600 hover:underline">+7 776 179 9721</a>
+      </p>
+      <p class="flex items-center space-x-2">
+        💬 <strong>WhatsApp:</strong>
+        <a href="https://wa.me/77761799721" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-200">
+          Написать в WhatsApp
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

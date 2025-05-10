@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль — SoulTalk{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-6">
+  <h2 class="text-2xl font-semibold text-center mb-6">Ваш Профиль</h2>
+
+  <div class="flex flex-col items-center text-center space-y-4">
+    {% if user.avatar %}
+      <img src="{{ user.avatar.url }}" alt="Avatar" class="w-32 h-32 rounded-full object-cover shadow-md">
+    {% else %}
+      <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center text-3xl text-gray-500 shadow-md">
+        {{ user.first_name|first|default:user.username|first }}
+      </div>
+    {% endif %}
+
+    <div>
+      <p class="text-xl font-bold">{{ user.get_full_name|default:user.username }}</p>
+      {% if user.age %}
+        <p class="text-gray-600">Возраст: {{ user.age }}</p>
+      {% endif %}
+      {% if user.bio %}
+        <p class="mt-2 italic text-gray-700">"{{ user.bio }}"</p>
+      {% else %}
+        <p class="mt-2 text-gray-400">Нет биографии</p>
+      {% endif %}
+    </div>
+
+    <a href="{% url 'edit_profile' %}" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded shadow">
+      ✏️ Редактировать
+    </a>
+  </div>
+</div>
+{% endblock %}

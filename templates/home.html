@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .hero {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+    color: white;
+    padding: 100px 30px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .feature-icon {
+    font-size: 40px;
+    color: #6c63ff;
+    margin-bottom: 15px;
+  }
+
+  .section-title {
+    font-weight: bold;
+    font-size: 28px;
+    margin: 60px 0 30px;
+    text-align: center;
+  }
+</style>
+
+<div class="hero">
+  <h1>Добро пожаловать в SoulTalk</h1>
+  <p class="lead mt-3">Анонимная поддержка, групповое общение и помощь от психологов</p>
+</div>
+
+<div class="container">
+  <h2 class="section-title">Что вы найдете на платформе</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h5>Групповые чаты</h5>
+        <p>Присоединяйтесь к безопасному пространству и общайтесь с людьми, сталкивающимися с похожими проблемами.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h5>Психологи</h5>
+        <p>Получите поддержку от сертифицированных специалистов. Возможность личной сессии.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h5>Полезные советы</h5>
+        <p>Читайте материалы и рекомендации по преодолению тревоги, депрессии и других состояний.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h5>Анонимность</h5>
+        <p>Ваше спокойствие и конфиденциальность — наш приоритет. Никто не узнает, кто вы.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">🌈</div>
+        <h5>Безопасная среда</h5>
+        <p>Модерация сообщений и защита от токсичного общения.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h5>Отзывы</h5>
+        <p>Оставьте своё мнение и читайте, как SoulTalk помогает другим людям.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

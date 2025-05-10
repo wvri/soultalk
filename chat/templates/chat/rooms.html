@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Chat Rooms — SoulTalk{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="text-blue-500 hover:underline">← Назад</a>
+
+  <h1 class="text-2xl font-semibold mb-4">Available Chat Rooms</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+    {% for room in rooms %}
+      <a href="{% url 'room_detail' room.name %}"
+         class="block text-center bg-pink-100 text-pink-800 font-medium py-3 px-5 rounded-xl shadow hover:bg-pink-200 transition duration-200">
+        {{ room.name }}
+      </a>
+    {% empty %}
+      <p class="text-gray-500">Комнаты не найдены.</p>
+    {% endfor %}
+  </div>
+  
+{% endblock %}

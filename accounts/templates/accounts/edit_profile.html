@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать профиль — SoulTalk{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-6">
+  <h2 class="text-2xl font-semibold text-center mb-6">Редактировать Профиль</h2>
+
+  <form method="post" enctype="multipart/form-data" class="space-y-4">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    
+    <div>
+      {{ form.first_name.label_tag }}
+      {{ form.first_name }}
+    </div>
+
+    <div>
+      {{ form.last_name.label_tag }}
+      {{ form.last_name }}
+    </div>
+
+    <div>
+      {{ form.age.label_tag }}
+      {{ form.age }}
+    </div>
+
+    <div>
+      {{ form.bio.label_tag }}
+      {{ form.bio }}
+    </div>
+
+    <div>
+      {{ form.avatar.label_tag }}
+      {{ form.avatar }}
+      {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" alt="Аватар" class="w-24 h-24 rounded-full mt-2">
+      {% endif %}
+    </div>
+
+    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow">
+      💾 Сохранить
+    </button>
+  </form>
+
+  <form method="post" action="{% url 'remove_avatar' %}" class="mt-4 text-center">
+    {% csrf_token %}
+    <button type="submit" class="text-sm text-red-500 hover:underline">Удалить аватар</button>
+  </form>
+</div>
+{% endblock %}
